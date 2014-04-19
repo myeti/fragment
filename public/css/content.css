@@ -1,0 +1,129 @@
+
+/* Paper */
+#paper {
+    text-align: center;
+}
+#paper header {
+
+}
+#paper header h1 {
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+/* Tree : #B1AEA6 */
+#tree .person {
+    text-align: center;
+    white-space: nowrap;
+}
+#tree .person h2 {
+    margin: 0;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+#tree .person aside {
+    margin-top: -2px;
+}
+
+#tree .couple > .person,
+#tree .couple > .and {
+    display: inline-block;
+    vertical-align: top;
+}
+#tree .couple > .person {
+    width: 90px;
+}
+#tree > .family > .couple > .person {
+    width: calc(50% - 16px);
+}
+#tree .couple > .person:first-child {
+    text-align: right;
+}
+#tree .couple > .person:last-child {
+    text-align: left;
+}
+#tree .couple > .and {
+    padding: 0 4px;
+    margin-top: -5px;
+    font-family: Lora, serif;
+    font-size: 25px;
+    opacity: 0.4;
+}
+
+#tree .ex > .couple {
+    position: relative;
+}
+#tree .ex > .couple::before {
+    position: absolute;
+    content: " ";
+    top: -12px;
+    left: -10px;
+    right: 50%;
+    border-top: 2px dotted #B1AEA6;
+}
+#tree .ex > .couple::after {
+    position: absolute;
+    content: " ";
+    top: -12px;
+    right: 50%;
+    height: 8px;
+    border-left: 2px dotted #B1AEA6;
+}
+#tree .family.has-ex > .couple::before {
+    position: absolute;
+    content: " ";
+    top: 28px;
+    right: -8px;
+    left: calc(50% + 8px);
+    border-top: 2px dotted #B1AEA6;
+}
+
+#tree .children {
+    position: relative;
+}
+#tree .children::before {
+    position: absolute;
+    content: " ";
+    top: 2px;
+    left: 50%;
+    margin-left: -1px;
+    width: 1px;
+    height: 18px;
+    border-right: 2px solid #B1AEA6;
+}
+#tree .children > .child,
+#tree .children > .ex {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    padding: 40px 20px;
+    margin: 0 -2px;
+}
+#tree .children > .child::before {
+    position: absolute;
+    content: " ";
+    top: 20px;
+    left: 50%;
+    margin-left: -1px;
+    width: 1px;
+    height: 14px;
+    border-right: 2px solid #B1AEA6;
+}
+#tree .children > .child::after,
+#tree .children > .ex::after {
+    position: absolute;
+    content: " ";
+    top: 20px;
+    left: 0;
+    right: 0;
+    border-top: 2px solid #B1AEA6;
+}
+#tree .children > .child:first-child::after {
+    left: 50%;
+}
+#tree .children > .child:last-child::after {
+    right: 50%;
+}
+#tree .children > .child:only-child::after {
+    border-top: 0;
+}

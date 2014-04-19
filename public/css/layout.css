@@ -1,0 +1,50 @@
+/* Fonts */
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600);
+@import url(http://fonts.googleapis.com/css?family=Lora:400,400italic);
+
+
+/* General */
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #EBE7DB;
+}
+body, button, input, textarea, select {
+    color: #444;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border: none;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+img {
+    border: none;
+}
+
+p {
+    line-height: 21px;
+}
