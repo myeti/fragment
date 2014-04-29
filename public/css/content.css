@@ -1,129 +1,236 @@
+/** Layout */
 
-/* Paper */
-#paper {
-    text-align: center;
+#left, #middle, #right {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
 }
-#paper header {
-
-}
-#paper header h1 {
-    font-size: 60px;
-    text-transform: uppercase;
-}
-
-/* Tree : #B1AEA6 */
-#tree .person {
-    text-align: center;
-    white-space: nowrap;
-}
-#tree .person h2 {
-    margin: 0;
-    font-size: 18px;
-    text-transform: uppercase;
-}
-#tree .person aside {
-    margin-top: -2px;
-}
-
-#tree .couple > .person,
-#tree .couple > .and {
-    display: inline-block;
-    vertical-align: top;
-}
-#tree .couple > .person {
-    width: 90px;
-}
-#tree > .family > .couple > .person {
-    width: calc(50% - 16px);
-}
-#tree .couple > .person:first-child {
-    text-align: right;
-}
-#tree .couple > .person:last-child {
-    text-align: left;
-}
-#tree .couple > .and {
-    padding: 0 4px;
-    margin-top: -5px;
-    font-family: Lora, serif;
-    font-size: 25px;
-    opacity: 0.4;
-}
-
-#tree .ex > .couple {
-    position: relative;
-}
-#tree .ex > .couple::before {
-    position: absolute;
-    content: " ";
-    top: -12px;
-    left: -10px;
-    right: 50%;
-    border-top: 2px dotted #B1AEA6;
-}
-#tree .ex > .couple::after {
-    position: absolute;
-    content: " ";
-    top: -12px;
-    right: 50%;
-    height: 8px;
-    border-left: 2px dotted #B1AEA6;
-}
-#tree .family.has-ex > .couple::before {
-    position: absolute;
-    content: " ";
-    top: 28px;
-    right: -8px;
-    left: calc(50% + 8px);
-    border-top: 2px dotted #B1AEA6;
-}
-
-#tree .children {
-    position: relative;
-}
-#tree .children::before {
-    position: absolute;
-    content: " ";
-    top: 2px;
-    left: 50%;
-    margin-left: -1px;
-    width: 1px;
-    height: 18px;
-    border-right: 2px solid #B1AEA6;
-}
-#tree .children > .child,
-#tree .children > .ex {
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-    padding: 40px 20px;
-    margin: 0 -2px;
-}
-#tree .children > .child::before {
-    position: absolute;
-    content: " ";
-    top: 20px;
-    left: 50%;
-    margin-left: -1px;
-    width: 1px;
-    height: 14px;
-    border-right: 2px solid #B1AEA6;
-}
-#tree .children > .child::after,
-#tree .children > .ex::after {
-    position: absolute;
-    content: " ";
-    top: 20px;
+#left {
     left: 0;
+    width: 300px;
+}
+#middle {
+    left: 300px;
     right: 0;
-    border-top: 2px solid #B1AEA6;
 }
-#tree .children > .child:first-child::after {
-    left: 50%;
+#right {
+    right: 0;
+    width: 500px;
+    z-index: 20;
 }
-#tree .children > .child:last-child::after {
-    right: 50%;
+
+#left > header,
+#middle > header,
+#right > header {
+    background: rgba(47, 135, 193, 0.85);
+    padding: 16px 20px;
+    color: #FFF;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
 }
-#tree .children > .child:only-child::after {
-    border-top: 0;
+#left > header a,
+#middle > header a,
+#right > header a {
+    display: inline-block;
+    float: right;
+    opacity: 0.6;
+}
+#left > header a:hover,
+#middle > header a:hover,
+#right > header a:hover {
+    opacity: 1;
+}
+
+
+/** Left */
+
+#left {
+    background: #30363E;
+    color: #FFF;
+}
+#left ul {
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+}
+#left ul li a {
+    display: block;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+#left ul li a:hover {
+    background: #252a32;
+}
+#left ul li a.active {
+    background: #1f242c;
+}
+
+
+
+/** Middle */
+
+#middle {
+
+}
+
+#middle ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#middle ul.tree {
+    padding: 15px 10px;
+}
+#middle ul.tree a {
+    display: inline-block;
+    padding: 2px 8px;
+}
+#middle ul.tree a:hover {
+    background: #EEE;
+    border-radius: 4px;
+}
+#middle ul.tree > li,
+#middle ul.tree ul.children > li {
+    position: relative;
+    margin-left: 4px;
+    padding-top: 4px;
+}
+#middle ul.tree ul.children > li::before {
+    position: absolute;
+    content: " ";
+    top: 15px;
+    left: -16px;
+    width: 16px;
+    border-top: 1px solid #CCC;
+}
+#middle ul.tree ul.children > li::after {
+    position: absolute;
+    content: " ";
+    top: 0;
+    bottom: 0;
+    left: -16px;
+    border-left: 1px solid #CCC;
+}
+#middle ul.tree ul.spouses > li:last-child > ul.children > li:last-child::after {
+    bottom: auto;
+    height: 16px;
+}
+#middle ul.tree ul.spouses {
+    margin-top: -10px;
+}
+#middle ul.tree ul.spouses > li {
+    margin-top: 6px;
+}
+#middle ul.tree ul.spouses > li > a::before {
+    content: "&";
+    margin-right: 4px;
+    color: #BBB;
+}
+#middle ul.tree ul.children {
+    margin-left: 24px;
+}
+
+
+/** Right */
+
+#right {
+    color: #999;
+    background: #F9F9F9;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+#right .line {
+    margin: 20px;
+}
+
+#right .line h2 {
+    font-size: 18px;
+    color: #888;
+}
+#right .line label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #BBB;
+}
+#right .line select,
+#right .line input[type=text],
+#right .line textarea {
+    background: #FCFCFC;
+    border: 1px solid #DDD;
+    padding: 8px 12px;
+    border-radius: 3px;
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+}
+#right .line textarea {
+    height: 150px;
+}
+#right .line select:focus,
+#right .line input[type=text]:focus,
+#right .line textarea:focus {
+    border-color: #BBB;
+}
+
+#right .line.head img {
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+#right .line.head input[type=text] {
+    width: 240px;
+}
+#right .line.head .gender {
+    text-align: center;
+}
+#right .line.head .gender label {
+    display: inline-block;
+    font-size: 25px;
+}
+#right .line.head .gender input + label {
+    margin-left: 20px;
+}
+
+#right .line.event .block {
+    display: inline-block;
+    width: 143px;
+}
+#right .line.event .common {
+    margin-top: -18px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    color: #CCC;
+    font-weight: 300;
+    font-style: italic;
+}
+
+#right .line.action {
+    padding-top: 20px;
+    text-align: right;
+    border-top: 1px solid #DDD;
+}
+
+
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #CCC;
+    border-radius: 4px;
+    font-family: Montserrat, sans-serif;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.btn.btn-primary {
+    background: rgba(47, 135, 193, 0.5);
+}
+.btn:hover {
+    cursor: pointer;
+    background: rgba(47, 135, 193, 0.85);
 }

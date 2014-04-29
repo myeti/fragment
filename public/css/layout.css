@@ -1,11 +1,11 @@
-/* Fonts */
+/** Fonts */
 
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600);
-@import url(http://fonts.googleapis.com/css?family=Lora:400,400italic);
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 
-/* General */
+/** General */
 
 * {
     box-sizing: border-box;
@@ -15,12 +15,10 @@
 html, body {
     margin: 0;
     padding: 0;
-    background: #EBE7DB;
 }
 body, button, input, textarea, select {
     color: #444;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 15px;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -37,7 +35,6 @@ a {
 }
 
 button {
-    font-family: 'Montserrat', sans-serif;
     cursor: pointer;
 }
 
@@ -47,4 +44,8 @@ img {
 
 p {
     line-height: 21px;
+}
+
+.clear {
+    clear: both;
 }
