@@ -17,10 +17,10 @@ class Person
     public $firstnames;
 
     /** @var string */
-    public $lastnames;
+    public $lastname;
 
     /** @var int */
-    public $gender;
+    public $gender = 0;
 
     /** @var string text */
     public $note;
@@ -30,6 +30,21 @@ class Person
 
     /** @var int */
     public $id_tree;
+
+
+    /**
+     * New person
+     * @param $name
+     */
+    public function __construct($firstnames = null, $lastname = null)
+    {
+        if($firstnames) {
+            $this->firstnames = $firstnames;
+        }
+        if($lastname) {
+            $this->lastname = $lastname;
+        }
+    }
 
     /**
      * Get all couples
@@ -55,7 +70,7 @@ class Person
      */
     public function render()
     {
-        return Engine::forge(__DIR__ . 'views/person', ['person' => $this]);
+        return Engine::forge(__DIR__ . '/views/person', ['person' => $this]);
     }
 
 } 

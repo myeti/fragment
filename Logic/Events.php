@@ -34,7 +34,7 @@ class Events
      */
     public function show($id)
     {
-        $event = Event::one($id);
+        $event = Event::one(['id' => $id]);
 
         return compact('event');
     }
@@ -48,7 +48,7 @@ class Events
      */
     public function edit($id)
     {
-        $event = Event::one($id);
+        $event = Event::one(['id' => $id]);
 
         if($data = post()) {
             hydrate($event, $data);

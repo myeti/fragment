@@ -1,17 +1,17 @@
 <header>
-    Aymeric Assier
-    <a href="#"><i class="fa fa-times"></i></a>
+    <?= $person->firstnames ?> <?= $person->lastname ?>
+    <a href="#" class="close"><i class="fa fa-times"></i></a>
 </header>
 
 <div class="line head">
 
     <img src="http://placehold.it/200x200" alt=""/>
 
-    <label for="firstnames">Prénom(s)</label>
-    <input type="text" id="firstnames" name="firstnames"/>
+    <label for="firstnames">PrÃ©nom(s)</label>
+    <input type="text" id="firstnames" name="firstnames" value="<?= $person->firstnames ?>"/>
 
     <label for="lastname">Nom</label>
-    <input type="text" id="lastname" name="lastname"/>
+    <input type="text" id="lastname" name="lastname" value="<?= $person->lastname ?>"/>
 
     <div class="gender">
         <label for="m">
@@ -29,7 +29,7 @@
 <div class="line event">
 
     <div class="block">
-        <label for="event[0][name]">Evénement</label>
+        <label for="event[0][name]">EvÃ©nement</label>
         <input type="text" name="event[0][name]" id="event[0][name]" value="Naissance"/>
     </div>
 
@@ -37,10 +37,10 @@
 
     <div class="block">
         <label for="event[0][date]">Date</label>
-        <input type="text" name="event[0][date]" id="event[0][date]" value="5 février 1989"/>
+        <input type="text" name="event[0][date]" id="event[0][date]" value="5 fÃ©vrier 1989"/>
     </div>
 
-    à
+    Ã 
 
     <div class="block">
         <label for="event[0][place]">Lieu</label>
@@ -50,7 +50,7 @@
     <!-- new line -->
 
     <div class="block">
-        <label for="event[1][name]">Evénement</label>
+        <label for="event[1][name]">EvÃ©nement</label>
         <input type="text" name="event[1][name]" id="event[1][name]"/>
     </div>
 
@@ -61,14 +61,14 @@
         <input type="text" name="event[1][date]" id="event[1][date]"/>
     </div>
 
-    à
+    ?
 
     <div class="block">
         <label for="event[1][place]">Lieu</label>
         <input type="text" name="event[1][place]" id="event[1][place]"/>
     </div>
 
-    <div class="common">Naissance, baptême, diplôme, décès</div>
+    <div class="common">Naissance, bapÃª?me, diplÃ´me, dÃ©cÃ¨s</div>
 
 </div>
 
@@ -80,12 +80,5 @@
 </div>
 
 <div class="line action">
-    <a class="btn" href="#" data-confirm="Attention, cela entrainera la suppression des couples et enfants !">Supprimer</a>
     <a class="btn btn-primary" href="#">Sauvegarder</a>
-</div>
-
-<div class="line action">
-    <a class="btn" href="#"> <i class="fa fa-plus"></i> parents</a>
-    <a class="btn" href="#"> <i class="fa fa-plus"></i> conjoint</a>
-    <a class="btn" href="#"> <i class="fa fa-plus"></i> enfant</a>
 </div>

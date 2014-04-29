@@ -1,25 +1,34 @@
 /** Layout */
 
-#left, #middle, #right {
+#welcome, #left, #middle, #right {
     position: fixed;
     top: 0;
     bottom: 0;
     z-index: 10;
 }
+#welcome {
+    left: 0;
+    right: 0;
+}
 #left {
     left: 0;
-    width: 300px;
+    width: 60px;
 }
 #middle {
-    left: 300px;
+    left: 60px;
     right: 0;
 }
 #right {
-    right: 0;
+    right: -500px;
     width: 500px;
     z-index: 20;
+    -webkit-transition: right 200ms ease-in-out;
+}
+#right.active {
+    right: 0;
 }
 
+#welcome > header,
 #left > header,
 #middle > header,
 #right > header {
@@ -27,7 +36,7 @@
     padding: 16px 20px;
     color: #FFF;
     font-family: Montserrat, sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     text-transform: uppercase;
 }
 #left > header a,
@@ -44,27 +53,61 @@
 }
 
 
+/** Welcome */
+
+#welcome {
+    background: #30363E;
+    color: #FFF;
+}
+
+#welcome #trees {
+    padding: 100px;
+    margin: 0;
+    list-style-type: none;
+    text-align: center;
+}
+#welcome #trees li {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 21px;
+    background: #3e454d;
+    width: 130px;
+    border-radius: 6px;
+    font-family: Montserrat, sans-serif;
+}
+#welcome #trees li.add {
+    opacity: 0.4;
+}
+#welcome #trees li:hover {
+    background: #4c545c;
+    opacity: 1;
+}
+#welcome #trees li a {
+    display: block;
+    padding: 24px;
+}
+#welcome #trees li a i {
+    display: block;
+    font-size: 60px;
+    margin-bottom: 6px;
+}
+
+
 /** Left */
 
 #left {
     background: #30363E;
     color: #FFF;
 }
-#left ul {
-    padding: 10px 0;
-    margin: 0;
-    list-style: none;
+#left > header {
+    padding: 8px 16px;
 }
-#left ul li a {
-    display: block;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-#left ul li a:hover {
-    background: #252a32;
-}
-#left ul li a.active {
-    background: #1f242c;
+#left > header a {
+    float: none;
+    opacity: 0.8;
+    font-size: 29px;
 }
 
 
@@ -84,13 +127,67 @@
 #middle ul.tree {
     padding: 15px 10px;
 }
-#middle ul.tree a {
+#middle ul.tree .name {
     display: inline-block;
     padding: 2px 8px;
-}
-#middle ul.tree a:hover {
-    background: #EEE;
     border-radius: 4px;
+}
+#middle ul.tree .name:hover {
+    background: #EEE;
+    cursor: pointer;
+}
+#middle ul.tree .name.active {
+    background: #666;
+    color: #FFF;
+}
+#middle ul.tree .name + .actions {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background: #FFF;
+    padding: 4px 0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    z-index: 3000;
+    border-radius: 4px;
+    border: 1px solid #888;
+}
+#middle ul.tree .name + .actions:after,
+#middle ul.tree .name + .actions:before {
+    bottom: 100%;
+    left: 18px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+#middle ul.tree .name + .actions:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #ffffff;
+    border-width: 7px;
+    margin-left: -7px;
+}
+#middle ul.tree .name + .actions:before {
+    border-color: rgba(136, 136, 136, 0);
+    border-bottom-color: #888;
+    border-width: 8px;
+    margin-left: -8px;
+}
+#middle ul.tree .name + .actions li a {
+    display: block;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #666;
+}
+#middle ul.tree .name + .actions li a:hover {
+    background: #EEE;
+    color: #333;
+}
+#middle ul.tree .name.active + .actions {
+    display: block;
 }
 #middle ul.tree > li,
 #middle ul.tree ul.children > li {
@@ -122,9 +219,10 @@
     margin-top: -10px;
 }
 #middle ul.tree ul.spouses > li {
+    position: relative;
     margin-top: 6px;
 }
-#middle ul.tree ul.spouses > li > a::before {
+#middle ul.tree ul.spouses > li > .name::before {
     content: "&";
     margin-right: 4px;
     color: #BBB;

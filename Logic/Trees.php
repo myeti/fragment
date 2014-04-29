@@ -34,9 +34,10 @@ class Trees
      */
     public function show($id)
     {
-        $tree = Tree::one($id);
+        $trees = Tree::all();
+        $tree = Tree::one(['id' => $id]);
 
-        return compact('tree');
+        return compact('trees', 'tree');
     }
 
 
@@ -48,7 +49,7 @@ class Trees
      */
     public function edit($id)
     {
-        $tree = Tree::one($id);
+        $tree = Tree::one(['id' => $id]);
 
         if($data = post()) {
             hydrate($tree, $data);

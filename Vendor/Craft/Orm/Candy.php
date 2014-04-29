@@ -87,8 +87,7 @@ class Candy implements CandyInterface
 
         // cast
         if($this->class) {
-            $stm->setFetchMode(\PDO::FETCH_CLASS, $this->class);
-            return $stm->fetchAll(\PDO::FETCH_CLASS);
+            return $stm->fetchAll(\PDO::FETCH_CLASS, $this->class);
         }
 
         return $stm->fetchAll(\PDO::FETCH_OBJ);

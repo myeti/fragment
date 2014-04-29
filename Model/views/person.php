@@ -1,60 +1,42 @@
-<?php if($couples = $person->couples()): ?>
+<li data-node="<?= $person->id ?>">
 
-    <?php $first = array_shift($couples); ?>
-    <div class="child family">
+    <div class="name"><?= $person->firstnames ?> <?= $person->lastname ?></div>
+    <ul class="actions">
+        <li><a href="<?= url('/person', $person->id) ?>" class="edit-person">Modifier infos</a></li>
 
-        <div class="couple">
-            <div class="person">
-                <h2><?= $person->firstnames ?></h2>
-                <aside>---</aside>
-            </div>
-            <div class="and">&amp;</div>
-            <div class="person">
-                <h2><?= $first->spouse()->firstnames ?></h2>
-                <aside>---</aside>
-            </div>
-        </div>
-
-        <?php if($children = $first->children()): ?>
-            <div class="children">
-                <?php foreach($children as $child): ?>
-                <?= $child->render() ?>
-                <?php endforeach; ?>
-            </div>
+        <?php if(!$person->id_parent): ?>
+        <li><a href="" class="add-parents">Ajouter parents</a></li>
         <?php endif; ?>
 
-    </div>
+        <li><a href="#" class="add-couple">Ajouter couple</a></li>
+        <li><a href="<?= url('/person', $person->id, 'delete') ?>" class="del-person">Supprimer</a></li>
+    </ul>
 
-    <?php foreach($couples as $couple): ?>
+    <?php if($couples = $person->couples()): ?>
+    <ul class="spouses">
 
-    <div class="ex family">
+        <?php foreach($couples as $couple): $spouse = $couple->spouse();?>
+        <li>
 
-        <div class="couple">
-            <div class="person">&nbsp;</div>
-            <div class="and">&amp;</div>
-            <div class="person">
-                <h2><?= $first->spouse()->firstnames ?></h2>
-                <aside>---</aside>
-            </div>
-        </div>
+            <div class="name"><?= $spouse->firstnames ?> <?= $spouse->lastname ?></div>
+            <ul class="actions">
+                <li><a href="<?= url('/person', $spouse->id) ?>" class="edit-person">Modifier infos</a></li>
+                <li><a href="" class="add-child">Ajouter enfant</a></li>
+                <li><a href="<?= url('/person', $spouse->id, 'delete') ?>">Supprimer</a></li>
+            </ul>
 
-        <?php if($children = $couple->children()): ?>
-            <div class="children">
-                <?php foreach($children as $child): ?>
-                    <?= $child->render() ?>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
+            <?php if($children = $couple->children()): ?>
+            <ul class="children">
 
-    </div>
+                <?php foreach($children as $child) $child->render(); ?>
 
-    <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
 
-<?php else: ?>
+        </li>
+        <?php endforeach; ?>
 
-    <div class="child person">
-        <h2><?= $person->firstnames ?></h2>
-        <aside>---</aside>
-    </div>
+    </ul>
+    <?php endif; ?>
 
-<?php endif; ?>
+</li>

@@ -6,15 +6,31 @@ $(document).ready(function(){
         right: $('#right')
     };
 
-
-    // open tree
-    $('#trees a').on('click', function(e){
+    // open person
+    panel.middle.on('click', 'a.edit-person', function(e){
 
         var url = $(this).attr('href');
-        panel.middle.load(url);
+        panel.right.addClass('active').load(url);
+        $('.name').removeClass('active');
 
         e.preventDefault();
-        return falsle;
+        return false;
+    });
+
+    // open/close menu
+    panel.middle.on('click', '.name', function(e){
+        e.stopPropagation();
+        $('.name').not(this).removeClass('active');
+        $(this).toggleClass('active');
+    }).on('click', function(){
+        $('.name').removeClass('active');
+    });
+
+    // close person
+    panel.right.on('click', 'a.close', function(e){
+        panel.right.removeClass('active').load(url);
+        e.preventDefault();
+        return false;
     });
 
 });

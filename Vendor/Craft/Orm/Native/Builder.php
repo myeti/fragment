@@ -7,7 +7,7 @@ class Builder
 
     /** @var array */
     protected $syntax = [
-        'primary'       => 'auto_increment',
+        'primary'       => 'primary key auto_increment',
         'null'          => 'not null',
         'default'       => 'default',
     ];

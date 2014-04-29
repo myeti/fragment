@@ -34,7 +34,7 @@ class Persons
      */
     public function show($id)
     {
-        $person = Person::one($id);
+        $person = Person::one(['id' => $id]);
 
         return compact('person');
     }
@@ -48,7 +48,7 @@ class Persons
      */
     public function edit($id)
     {
-        $person = Person::one($id);
+        $person = Person::one(['id' => $id]);
 
         if($data = post()) {
             hydrate($person, $data);

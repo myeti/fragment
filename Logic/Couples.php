@@ -34,7 +34,7 @@ class Couples
      */
     public function show($id)
     {
-        $couple = Couple::one($id);
+        $couple = Couple::one(['id' => $id]);
 
         return compact('couple');
     }
@@ -48,7 +48,7 @@ class Couples
      */
     public function edit($id)
     {
-        $couple = Couple::one($id);
+        $couple = Couple::one(['id' => $id]);
 
         if($data = post()) {
             hydrate($couple, $data);

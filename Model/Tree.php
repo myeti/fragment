@@ -24,21 +24,24 @@ class Tree
 
 
     /**
+     * New tree
+     * @param $name
+     */
+    public function __construct($name = null)
+    {
+        if($name) {
+            $this->name = $name;
+        }
+    }
+
+
+    /**
      * Get root person
      * @return Person
      */
     public function root()
     {
-        return Person::one(['id' => $this->id_person]);
-    }
-
-    /**
-     * Render tree
-     * @return string
-     */
-    public function render()
-    {
-        return Engine::forge(__DIR__ . 'views/tree', ['tree' => $this]);
+        return Person::one(['id' => $this->id_person]);;
     }
 
 } 

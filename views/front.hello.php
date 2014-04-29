@@ -1,21 +1,26 @@
 <?php self::layout('views/layout'); ?>
 
-<section id="left">
+<section id="welcome">
 
-    <header>
-        Fragment
-        <a href="#"><i class="fa fa-leaf"></i></a>
-    </header>
+    <header>Fragment</header>
 
     <ul id="trees">
+
         <?php foreach($trees as $subtree): ?>
         <li>
-            <a href="<?= url('/tree', $subtree->id); ?>"><?= $subtree->name ?></a>
+            <a href="<?= url('/tree', $subtree->id); ?>">
+                <i class="fa fa-leaf"></i>
+                <?= $subtree->name ?>
+            </a>
         </li>
         <?php endforeach; ?>
+
+        <li class="add">
+            <a href="<?= url('/tree/create'); ?>">
+                <i class="fa fa-plus"></i> Nouvel arbre
+            </a>
+        </li>
+
     </ul>
 
 </section>
-
-<section id="middle"></section>
-<section id="right"></section>
