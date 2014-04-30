@@ -19,13 +19,15 @@
     right: 0;
 }
 #right {
+    top: 80px;
+    bottom: auto;
     right: -500px;
     width: 500px;
     z-index: 20;
-    -webkit-transition: right 200ms ease-in-out;
+    -webkit-transition: right 120ms ease-in-out;
 }
 #right.active {
-    right: 0;
+    right: 30px;
 }
 
 #welcome > header,
@@ -205,77 +207,49 @@
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 }
 
-#right .line {
-    margin: 20px;
-}
+#right > header {
 
-#right .line h2 {
-    font-size: 18px;
-    color: #888;
 }
-#right .line label {
-    display: block;
-    text-transform: uppercase;
-    font-size: 12px;
-    color: #BBB;
+#right > main {
+    width: 100%;
+    background: #FFF;
 }
-#right .line select,
-#right .line input[type=text],
-#right .line textarea {
-    background: #FCFCFC;
-    border: 1px solid #DDD;
-    padding: 8px 12px;
-    border-radius: 3px;
-    margin: 0;
-    margin-bottom: 20px;
+#right > main .head {
     width: 100%;
 }
-#right .line textarea {
-    height: 150px;
-}
-#right .line select:focus,
-#right .line input[type=text]:focus,
-#right .line textarea:focus {
-    border-color: #BBB;
-}
-
-#right .line.head img {
+#right > main .head img {
     display: inline-block;
-    float: left;
-    margin-right: 20px;
-    border-radius: 4px;
+    vertical-align: top;
 }
-#right .line.head input[type=text] {
-    width: 240px;
-}
-#right .line.head .gender {
-    text-align: center;
-}
-#right .line.head .gender label {
+#right > main .head .names {
     display: inline-block;
-    font-size: 25px;
+    vertical-align: top;
+    margin: 0 -3px;
+    width: 340px;
 }
-#right .line.head .gender input + label {
-    margin-left: 20px;
+#right > main .head .names input {
+    display: block;
+    width: 100%;
+    margin: 0;
+    height: 80px;
+    border: 0;
+    border-bottom: 1px solid #CCC;
+    background: #FFF;
+    padding: 20px;
 }
-
-#right .line.event .block {
-    display: inline-block;
-    width: 143px;
-}
-#right .line.event .common {
-    margin-top: -18px;
-    margin-bottom: 15px;
-    font-size: 12px;
+#right > main .event {
+    width: 100%;
+    border-bottom: 1px solid #CCC;
     color: #CCC;
-    font-weight: 300;
-    font-style: italic;
 }
+#right > main .event input {
+    border: 0;
+    background: transparent;
+    width: 150px;
+    padding: 20px 15px;
+}
+#right > footer {
 
-#right .line.action {
-    padding-top: 20px;
-    text-align: right;
-    border-top: 1px solid #DDD;
 }
 
 
