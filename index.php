@@ -14,7 +14,7 @@ use Craft\App\Bundle;
  * Database
  */
 
-Syn::MySQL('fragment')
+Syn::SQLite('fragment.db')
     ->map('tree',   'My\Model\Tree')
     ->map('person', 'My\Model\Person')
     ->map('couple', 'My\Model\Couple')

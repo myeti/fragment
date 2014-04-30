@@ -1,5 +1,11 @@
 <?php self::layout('views/layout'); ?>
 
+<div class="modals">
+    <div class="modal" id="create-tree">
+
+    </div>
+</div>
+
 <section id="welcome">
 
     <header>Fragment</header>

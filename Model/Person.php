@@ -68,9 +68,12 @@ class Person
      * Render tree
      * @return string
      */
-    public function render()
+    public function render($depth = 1)
     {
-        return Engine::forge(__DIR__ . '/views/person', ['person' => $this]);
+        return Engine::forge(__DIR__ . '/views/person', [
+            'person' => $this,
+            'depth'  => $depth
+        ]);
     }
 
 } 
