@@ -62,6 +62,16 @@ trait Model
 
 
     /**
+     * Get entity for custom query
+     * @return Candy
+     */
+    public static function query()
+    {
+        return Syn::get(static::entity());
+    }
+
+
+    /**
      * Get entity name
      * @return string
      */

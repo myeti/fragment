@@ -34,7 +34,8 @@ class Person
 
     /**
      * New person
-     * @param $name
+     * @param string $firstnames
+     * @param string $lastname
      */
     public function __construct($firstnames = null, $lastname = null)
     {
@@ -47,12 +48,42 @@ class Person
     }
 
     /**
+     * Get full shortname
+     * @return string
+     */
+    public function fullname()
+    {
+        return $this->firstnames . ' ' . $this->lastname;
+    }
+
+    /**
+     * Get full shortname
+     * @return string
+     */
+    public function shortname()
+    {
+        $firstnames = explode(' ', $this->firstnames);
+        return $firstnames[0] . ' ' . $this->lastname;
+    }
+
+    /**
+     * Check if lineage or spouse
+     * @return bool
+     */
+    public function isSpouse()
+    {
+        return (bool)Couple::one(['id_spouse' => $this->id]);
+    }
+
+    /**
      * Get all couples
      * @return Couple[]
      */
     public function couples()
     {
-        return Couple::all(['id_person' => $this->id]);
+        return $this->isSpouse()
+            ? Couple::all(['id_spouse' => $this->id])
+            : Couple::all(['id_person' => $this->id]);
     }
 
     /**
@@ -68,12 +99,9 @@ class Person
      * Render tree
      * @return string
      */
-    public function render($depth = 1)
+    public function render()
     {
-        return Engine::forge(__DIR__ . '/views/person', [
-            'person' => $this,
-            'depth'  => $depth
-        ]);
+        return Engine::forge(__DIR__ . '/views/person', ['person' => $this]);
     }
 
 } 

@@ -19,22 +19,21 @@
     right: 0;
 }
 #right {
-    top: 80px;
-    bottom: auto;
     right: -500px;
+    bottom: auto;
     width: 500px;
     z-index: 20;
     -webkit-transition: right 120ms ease-in-out;
 }
 #right.active {
-    right: 30px;
+    right: 0;
 }
 
 #welcome > header,
 #left > header,
 #middle > header,
 #right > header {
-    background: rgba(47, 135, 193, 0.85);
+    background: #4D97C9;
     padding: 16px 20px;
     color: #FFF;
     font-family: Montserrat, sans-serif;
@@ -52,6 +51,12 @@
 #middle > header a:hover,
 #right > header a:hover {
     opacity: 1;
+}
+
+/** Modals */
+
+#modals {
+    display: none;
 }
 
 
@@ -105,6 +110,7 @@
 }
 #left > header {
     padding: 8px 16px;
+    background: #2F7AAD;
 }
 #left > header a {
     float: none;
@@ -203,53 +209,123 @@
 
 #right {
     color: #999;
-    background: #F9F9F9;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    background: #EEE;
 }
 
-#right > header {
-
+#right header {
+    background: #2F7AAD;
 }
-#right > main {
+#right main {
     width: 100%;
+    border-left: 1px solid #CCC;
     background: #FFF;
 }
-#right > main .head {
+#right main .head {
     width: 100%;
 }
-#right > main .head img {
+#right main .head .pic {
     display: inline-block;
     vertical-align: top;
+    height: 180px;
+    width: 180px;
+    overflow: hidden;
+    text-align: center;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
 }
-#right > main .head .names {
+#right main .head .pic img {
+    height: 100%;
+    width: auto;
+}
+#right main .head .names {
     display: inline-block;
     vertical-align: top;
     margin: 0 -3px;
-    width: 340px;
+    width: 320px;
 }
-#right > main .head .names input {
+#right main .head .names input[type=text] {
     display: block;
     width: 100%;
     margin: 0;
-    height: 80px;
     border: 0;
     border-bottom: 1px solid #CCC;
     background: #FFF;
-    padding: 20px;
+    padding: 15px 20px;
+    font-size: 20px;
+    height: 60px;
 }
-#right > main .event {
+#right main .head .names .gender {
+    border-bottom: 1px solid #CCC;
+    padding: 15px 20px;
+    height: 60px;
+}
+#right main .head .names .gender label {
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+}
+#right main .head .names .gender input {
+    margin-right: 20px;
+    cursor: pointer;
+}
+#right main .event {
     width: 100%;
     border-bottom: 1px solid #CCC;
     color: #CCC;
 }
-#right > main .event input {
+#right main .event input {
     border: 0;
     background: transparent;
-    width: 150px;
+    width: 145px;
     padding: 20px 15px;
 }
-#right > footer {
-
+#right main .event .remove-event {
+    display: inline-block;
+    padding: 4px 7px;
+}
+#right main .note {
+    border-bottom: 1px solid #CCC;
+}
+#right main .note textarea {
+    border: 0;
+    background: transparent;
+    padding: 20px 15px;
+    width: 100%;
+    height: 140px;
+    display: block;
+    resize: none;
+}
+#right main .sep {
+    padding: 10px 15px;
+    border-bottom: 1px solid #CCC;
+    background: #EEE;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+#right main .sep.title {
+    background: #DDD;
+}
+#right main .sep a {
+    float: right;
+    color: #BBB;
+}
+#right main .sep a:hover {
+    color: inherit;
+}
+#right footer {
+    padding: 20px;
+    background: #EEE;
+    text-align: right;
+    border-left: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+}
+#right footer .delete-person {
+    margin-left: 20px;
+}
+#right .p-template,
+#right .c-template {
+    display: none;
 }
 
 
