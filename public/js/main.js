@@ -6,6 +6,9 @@ $(document).ready(function(){
         right: $('#right')
     };
 
+    // login
+    $('#login input:first').focus();
+
     // open modal
     $(document).on('click', 'a[data-modal]', function(e){
 
@@ -40,7 +43,7 @@ $(document).ready(function(){
 
 
     // open person
-    panel.middle.on('click', 'a', function(e){
+    panel.middle.on('click', '.tree a', function(e){
 
         var url = $(this).attr('href');
         panel.right.addClass('active').load(url);

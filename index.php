@@ -11,6 +11,14 @@ use Craft\App\Bundle;
 
 
 /**
+ * Auth
+ */
+
+define('USERNAME', 'Babor');
+define('PASSWORD', '3f6f6d7c89d3c8b71750424d1ffc3c481ac351c5');
+
+
+/**
  * Database
  */
 
@@ -23,6 +31,7 @@ Syn::SQLite('fragment.db')
 
 require 'data.php';
 
+
 /**
  * Routes
  */
@@ -31,9 +40,10 @@ $app = new Bundle([
 
     '/'         => 'My\Logic\Front::hello',
     '/lost'     => 'My\Logic\Front::lost',
-    '/sorry'    => 'My\Logic\Front::sorry',
+    '/login'    => 'My\Logic\Front::login',
+    '/logout'   => 'My\Logic\Front::logout',
 
-    '/tree/new'                 => 'My\Logic\Trees::create',
+    '/tree/create'              => 'My\Logic\Trees::create',
     '/tree/:id/edit'            => 'My\Logic\Trees::edit',
     '/tree/:id/delete'          => 'My\Logic\Trees::delete',
     '/tree/:id'                 => 'My\Logic\Trees::show',
@@ -57,7 +67,7 @@ $app->on(404, function() use($app) {
 });
 
 $app->on(403, function() use($app) {
-    $app->to('/sorry');
+    $app->to('/login');
 });
 
 

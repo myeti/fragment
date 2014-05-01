@@ -119,10 +119,13 @@
         </a>
         <?php endif; ?>
 
+        <?php if($tree->id_person != $person->id): ?>
         <a class="btn delete-person" href="<?= url('/person', $person->id, 'delete') ?>"
            data-confirm="Etes-vous sûr ? Cette action supprimera cette personne ainsi que toutes ses relations et enfants.">
             <i class="fa fa-times"></i>
         </a>
+        <?php endif; ?>
+
         <button type="submit" class="btn btn-primary">Sauvegarder</button>
 
     </footer>

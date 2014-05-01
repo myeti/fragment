@@ -6,7 +6,7 @@ use My\Model\Tree;
 use My\Model\Person;
 use My\Model\Couple;
 
-$tree = new Tree('Maison Assier');
+$tree = new Tree('Assier');
 $tree->id = Tree::save($tree);
 
 $jc = new Person('Jean-Claude', 'Assier');

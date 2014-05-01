@@ -2,6 +2,8 @@
 
 namespace My\Logic;
 
+use Craft\Box\Auth;
+use Craft\Box\Flash;
 use My\Model\Tree;
 
 class Front
@@ -9,6 +11,7 @@ class Front
 
     /**
      * Landing page
+     * @auth 1
      * @render views/front.hello
      */
     public function hello()
@@ -20,7 +23,7 @@ class Front
 
     /**
      * 404 Not found
-     * @render views/error.404
+     * @render views/front.404
      */
     public function lost()
     {
@@ -28,12 +31,36 @@ class Front
     }
 
     /**
-     * 403 Forbidden
-     * @render views/error.403
+     * Login page
+     * @render views/front.login
      */
-    public function sorry()
+    public function login()
     {
 
+        // login attempt
+        if($data = post()) {
+
+            // good
+            if($data['username'] == USERNAME and sha1($data['password']) == PASSWORD) {
+                Auth::login(1);
+                go('/');
+            }
+            else {
+                Flash::set('login.error', 'Erreur, vos identifiants sont incorrects.');
+            }
+
+        }
+
+    }
+
+
+    /**
+     * Log user out
+     */
+    public function logout()
+    {
+        Auth::logout();
+        go('/login');
     }
 
 }

@@ -46,6 +46,19 @@
         </form>
     </div>
 
+    <div class="modal" id="edit-tree">
+        <form action="#" method="post">
+            <header>Modifier l'arbre</header>
+            <main>
+                <input type="text" name="name" placeholder="Nom de l'arbre" value="<?= $tree->name; ?>"/>
+            </main>
+            <footer>
+                <a class="btn" href="#" data-close>Fermer</a>
+                <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            </footer>
+        </form>
+    </div>
+
 </div>
 
 <section id="left">
@@ -58,7 +71,15 @@
 
 <section id="middle">
 
-    <header><?= $tree->name ?></header>
+    <header>
+        <?= $tree->name ?>
+        <a href="<?= url('/tree', $tree->id, 'edit') ?>" data-modal="#edit-tree">
+            <i class="fa fa-gear"></i>
+        </a>
+        <a href="<?= url('/tree', $tree->id, 'delete') ?>" data-confirm="Etes-vous sûr de vouloir couper cet arbre ? Ce n'est pas très écolo...">
+            <i class="fa fa-times"></i>
+        </a>
+    </header>
 
     <ul class="tree">
 

@@ -8,6 +8,10 @@ use My\Model\Couple;
 use My\Model\Event;
 use My\Model\Tree;
 
+
+/**
+ * @auth 1
+ */
 class Persons
 {
 
@@ -21,8 +25,9 @@ class Persons
     public function show($id)
     {
         $person = Person::one(['id' => $id]);
+        $tree = Tree::one(['id' => $person->id_tree]);
 
-        return compact('person');
+        return compact('person', 'tree');
     }
 
 
@@ -137,7 +142,7 @@ class Persons
         if($data = post() and !$person->id_parent) {
 
             // get tree
-            $tree = Tree::one($person->id_tree);
+            $tree = Tree::one(['id' => $person->id_tree]);
 
             // create person 1
             $p1 = new Person($data['p1-firstnames'], $data['p1-lastname']);
@@ -150,7 +155,7 @@ class Persons
 
             // create person 2
             $p2 = new Person($data['p2-firstnames'], $data['p2-lastname']);
-            $p1->id_tree = $person->id_tree;
+            $p2->id_tree = $person->id_tree;
             $p2->id = Person::save($p2);
 
             // create parent couple
@@ -175,7 +180,7 @@ class Persons
     public function addCouple($id)
     {
         $person = Person::one(['id' => $id]);
-        if($data = post() and !$person->id_parent) {
+        if($data = post()) {
 
             // create spouse
             $spouse = new Person($data['firstnames'], $data['lastname']);

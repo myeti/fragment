@@ -2,27 +2,42 @@
 
 namespace My\Logic;
 
+use My\Model\Person;
 use My\Model\Tree;
 
+
+/**
+ * @auth 1
+ */
 class Trees
 {
 
     /**
      * Create tree
-     * @render views/trees.create
      * @return array
      */
     public function create()
     {
-        $tree = new Tree;
-
         if($data = post()) {
-            hydrate($tree, $data);
-            $id = Tree::save($tree);
-            go('/tree', $id);
+
+            // create tree
+            $tree = new Tree;
+            $tree->name = $data['name'];
+            $tree->id = Tree::save($tree);
+
+            // create first person
+            $person = new Person('Première', 'Personne');
+            $person->id_tree = $tree->id;
+            $person->id = Person::save($person);
+
+            // set root
+            $tree->id_person = $person->id;
+            Tree::save($tree);
+
+            go('/tree', $tree->id);
         }
 
-        return compact('tree');
+        go('/tree');
     }
 
 
@@ -52,7 +67,7 @@ class Trees
         $tree = Tree::one(['id' => $id]);
 
         if($data = post()) {
-            hydrate($tree, $data);
+            $tree->name = $data['name'];
             $id = Tree::save($tree);
             go('/tree', $id);
         }

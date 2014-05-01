@@ -1,8 +1,17 @@
 <?php self::layout('views/layout'); ?>
 
-<div class="modals">
+<div id="modals">
     <div class="modal" id="create-tree">
-
+        <form action="#" method="post">
+            <header>Créer un arbre</header>
+            <main>
+                <input type="text" name="name" placeholder="Nom de l'arbre" required/>
+            </main>
+            <footer>
+                <a class="btn" href="#" data-close>Fermer</a>
+                <button type="submit" class="btn btn-primary">Créer</button>
+            </footer>
+        </form>
     </div>
 </div>
 
@@ -21,12 +30,10 @@
         </li>
         <?php endforeach; ?>
 
-        <li class="add">
-            <a href="<?= url('/tree/create'); ?>">
-                <i class="fa fa-plus"></i> Nouvel arbre
-            </a>
-        </li>
-
     </ul>
+
+    <a class="btn btn-primary add-tree" href="<?= url('/tree/create') ?>" data-modal="#create-tree">
+        Nouvel arbre
+    </a>
 
 </section>

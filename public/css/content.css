@@ -46,11 +46,62 @@
     display: inline-block;
     float: right;
     opacity: 0.6;
+    margin-left: 20px;
 }
 #left > header a:hover,
 #middle > header a:hover,
 #right > header a:hover {
     opacity: 1;
+}
+
+
+/** Login */
+
+#login {
+    margin: auto;
+    margin-top: 21%;
+}
+#login .logo {
+    margin-top: 200px;
+    display: block;
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    font-family: Montserrat, sans-serif;
+}
+#login .logo i {
+    display: block;
+    padding-top: 36px;
+    border-radius: 100%;
+    height: 120px;
+    width: 120px;
+    background: #4c545c;
+    color: #FFF;
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 8px;
+}
+#login .box {
+    width: 260px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 2px;
+}
+#login .box input {
+    border: 1px solid #CCC;
+    padding: 10px 20px;
+    margin-bottom: 6px;
+    border-radius: 2px;
+    width: 100%;
+}
+#login .box input[type=password] {
+    width: 145px;
+}
+#login .box button {
+    vertical-align: top;
+    padding: 13px 14px;
+    border-radius: 2px;
 }
 
 /** Modals */
@@ -107,9 +158,12 @@
     margin: 0;
     margin-right: -3px;
 }
-#modals .modal main input:nth-child(1),
+#modals .modal main input:nth-child(1):not(:only-child),
 #modals .modal main input:nth-child(3) {
     border-right: 1px dashed #CCC;
+}
+#modals .modal main input:only-child {
+    width: 100%;
 }
 #modals .modal footer {
     background: #EEE;
@@ -120,42 +174,50 @@
 /** Welcome */
 
 #welcome {
-    background: #30363E;
-    color: #FFF;
+    text-align: center;
 }
 
 #welcome #trees {
-    padding: 100px;
-    margin: 0;
+    display: block;
+    padding: 0;
+    margin-top: 100px;
     list-style-type: none;
-    text-align: center;
 }
 #welcome #trees li {
     display: inline-block;
+    vertical-align: top;
     margin: 20px;
-    text-align: center;
-    font-size: 22px;
-    line-height: 21px;
-    background: #3e454d;
-    width: 130px;
-    border-radius: 6px;
-    font-family: Montserrat, sans-serif;
-}
-#welcome #trees li.add {
-    opacity: 0.4;
-}
-#welcome #trees li:hover {
-    background: #4c545c;
-    opacity: 1;
+    width: 190px;
 }
 #welcome #trees li a {
     display: block;
-    padding: 24px;
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    font-family: Montserrat, sans-serif;
 }
 #welcome #trees li a i {
     display: block;
-    font-size: 60px;
-    margin-bottom: 6px;
+    padding-top: 36px;
+    border-radius: 100%;
+    height: 120px;
+    width: 120px;
+    background: #4c545c;
+    color: #FFF;
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 8px;
+}
+#welcome #trees li a:hover {
+    color: #4D97C9
+}
+#welcome #trees li a:hover i {
+    background: #4D97C9
+}
+
+#welcome .add-tree {
+    margin: 40px;
 }
 
 
@@ -173,6 +235,7 @@
     float: none;
     opacity: 0.8;
     font-size: 29px;
+    margin-left: 0;
 }
 
 
