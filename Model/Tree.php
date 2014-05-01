@@ -36,12 +36,24 @@ class Tree
 
 
     /**
+     * return safe name for url
+     * @return mixed
+     */
+    public function safename()
+    {
+        $name = strtolower(str_replace(' ', '-', $this->name));
+        $name = preg_replace('/[^a-zA-Z0-9-]/', '', $name);
+        return $name;
+    }
+
+
+    /**
      * Get root person
      * @return Person
      */
     public function root()
     {
-        return Person::one(['id' => $this->id_person]);;
+        return Person::one(['id' => $this->id_person]);
     }
 
 } 

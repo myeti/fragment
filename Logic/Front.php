@@ -25,9 +25,14 @@ class Front
      * Render tree
      * @render views/front.render
      */
-    public function render($id)
+    public function render($safe)
     {
-        $tree = Tree::one(['id' => $id]);
+        $trees = Tree::all();
+        foreach($trees as $tree) {
+            if($tree->safename() == $safe) {
+                break;
+            }
+        }
 
         return compact('tree');
     }

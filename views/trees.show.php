@@ -79,7 +79,7 @@
         <a href="<?= url('/tree', $tree->id, 'edit') ?>" data-modal="#edit-tree">
             <i class="fa fa-gear"></i>
         </a>
-        <a href="<?= url('/tree', $tree->id, 'render') ?>" target="_blank">
+        <a href="<?= url('/leaf', $tree->safename()) ?>" target="_blank">
             <i class="fa fa-leaf"></i>
         </a>
     </header>
