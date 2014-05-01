@@ -73,11 +73,14 @@
 
     <header>
         <?= $tree->name ?>
+        <a href="<?= url('/tree', $tree->id, 'delete') ?>" data-confirm="Etes-vous sûr de vouloir couper cet arbre ? Ce n'est pas très écolo...">
+            <i class="fa fa-times"></i>
+        </a>
         <a href="<?= url('/tree', $tree->id, 'edit') ?>" data-modal="#edit-tree">
             <i class="fa fa-gear"></i>
         </a>
-        <a href="<?= url('/tree', $tree->id, 'delete') ?>" data-confirm="Etes-vous sûr de vouloir couper cet arbre ? Ce n'est pas très écolo...">
-            <i class="fa fa-times"></i>
+        <a href="<?= url('/tree', $tree->id, 'render') ?>" target="_blank">
+            <i class="fa fa-leaf"></i>
         </a>
     </header>
 

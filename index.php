@@ -46,8 +46,8 @@ $app = new Bundle([
     '/tree/create'              => 'My\Logic\Trees::create',
     '/tree/:id/edit'            => 'My\Logic\Trees::edit',
     '/tree/:id/delete'          => 'My\Logic\Trees::delete',
+    '/tree/:id/render'          => 'My\Logic\Front::render',
     '/tree/:id'                 => 'My\Logic\Trees::show',
-    '/render/:id'               => 'My\Logic\Front::render',
 
     '/person/:id/edit'          => 'My\Logic\Persons::edit',
     '/person/:id/delete'        => 'My\Logic\Persons::delete',
