@@ -48,6 +48,16 @@ class Person
     }
 
     /**
+     * Get first firstname
+     * @return string
+     */
+    public function firstname()
+    {
+        $firstnames = explode(' ', $this->firstnames);
+        return $firstnames[0];
+    }
+
+    /**
      * Get full shortname
      * @return string
      */
@@ -62,8 +72,7 @@ class Person
      */
     public function shortname()
     {
-        $firstnames = explode(' ', $this->firstnames);
-        return $firstnames[0] . ' ' . $this->lastname;
+        return $this->firstname() . ' ' . $this->lastname;
     }
 
     /**
@@ -102,6 +111,15 @@ class Person
     public function render()
     {
         return Engine::forge(__DIR__ . '/views/person', ['person' => $this]);
+    }
+
+    /**
+     * Render tree out
+     * @return string
+     */
+    public function renderOut()
+    {
+        return Engine::forge(__DIR__ . '/views/person_out', ['person' => $this]);
     }
 
 } 

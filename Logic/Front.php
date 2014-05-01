@@ -22,6 +22,17 @@ class Front
     }
 
     /**
+     * Render tree
+     * @render views/front.render
+     */
+    public function render($id)
+    {
+        $tree = Tree::one(['id' => $id]);
+
+        return compact('tree');
+    }
+
+    /**
      * 404 Not found
      * @render views/front.404
      */

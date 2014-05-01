@@ -1,0 +1,191 @@
+/* Fonts */
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600);
+@import url(http://fonts.googleapis.com/css?family=Lora:400,400italic);
+
+
+/* General */
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #EBE7DB;
+}
+body, button, input, textarea, select {
+    color: #444;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border: none;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+img {
+    border: none;
+}
+
+p {
+    line-height: 21px;
+}
+
+
+/* Paper */
+#paper {
+    text-align: center;
+}
+#paper header {
+
+}
+#paper header h1 {
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+/* Tree : #B1AEA6 */
+#tree {
+    cursor: move;
+}
+#tree .person {
+    text-align: center;
+}
+#tree .person h2 {
+    margin: 0;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+#tree .person h3 {
+    margin: 0;
+    margin-top: -4px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    opacity: 0.8;
+}
+#tree .person aside {
+    margin-top: -2px;
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+#tree .couple > .person,
+#tree .couple > .and {
+    display: inline-block;
+    vertical-align: top;
+}
+#tree .couple > .person {
+
+}
+#tree .couple > .person:first-child {
+    text-align: right;
+}
+#tree .couple > .person:last-child {
+    text-align: left;
+}
+#tree .couple > .and {
+    padding: 0 4px;
+    margin-top: -5px;
+    font-family: Lora, serif;
+    font-size: 25px;
+    opacity: 0.4;
+}
+
+#tree .ex > .couple {
+    position: relative;
+}
+#tree .ex > .couple::before {
+    position: absolute;
+    content: " ";
+    top: -12px;
+    left: -10px;
+    right: 50%;
+    border-top: 2px dotted #B1AEA6;
+}
+#tree .ex > .couple::after {
+    position: absolute;
+    content: " ";
+    top: -12px;
+    right: 50%;
+    height: 8px;
+    border-left: 2px dotted #B1AEA6;
+}
+#tree .family.has-ex > .couple::before {
+    position: absolute;
+    content: " ";
+    top: 28px;
+    right: -8px;
+    left: calc(50% + 8px);
+    border-top: 2px dotted #B1AEA6;
+}
+
+#tree .children {
+    position: relative;
+}
+#tree .children::before {
+    position: absolute;
+    content: " ";
+    top: 2px;
+    left: 50%;
+    margin-left: -1px;
+    width: 1px;
+    height: 18px;
+    border-right: 2px solid #B1AEA6;
+}
+#tree .children > .child,
+#tree .children > .ex {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    padding: 40px 20px;
+    margin: 0 -2px;
+}
+#tree .children > .child::before {
+    position: absolute;
+    content: " ";
+    top: 20px;
+    left: 50%;
+    margin-left: -1px;
+    width: 1px;
+    height: 14px;
+    border-right: 2px solid #B1AEA6;
+}
+#tree .children > .child::after,
+#tree .children > .ex::after {
+    position: absolute;
+    content: " ";
+    top: 20px;
+    left: 0;
+    right: 0;
+    border-top: 2px solid #B1AEA6;
+}
+#tree .children > .child:first-child::after {
+    left: 50%;
+}
+#tree .children > .child:last-child::after {
+    right: 50%;
+}
+#tree .children > .child:only-child::after {
+    border-top: 0;
+}
