@@ -33,25 +33,17 @@ $app = new Bundle([
     '/lost'     => 'My\Logic\Front::lost',
     '/sorry'    => 'My\Logic\Front::sorry',
 
-    '/tree/new'             => 'My\Logic\Trees::create',
-    '/tree/:id'             => 'My\Logic\Trees::show',
-    '/tree/:id/edit'        => 'My\Logic\Trees::edit',
-    '/tree/:id/delete'      => 'My\Logic\Trees::delete',
+    '/tree/new'                 => 'My\Logic\Trees::create',
+    '/tree/:id/edit'            => 'My\Logic\Trees::edit',
+    '/tree/:id/delete'          => 'My\Logic\Trees::delete',
+    '/tree/:id'                 => 'My\Logic\Trees::show',
 
-    '/person/new'           => 'My\Logic\Persons::create',
-    '/person/:id'           => 'My\Logic\Persons::show',
-    '/person/:id/edit'      => 'My\Logic\Persons::edit',
-    '/person/:id/delete'    => 'My\Logic\Persons::delete',
-
-    '/couple/new'           => 'My\Logic\Couples::create',
-    '/couple/:id'           => 'My\Logic\Couples::show',
-    '/couple/:id/edit'      => 'My\Logic\Couples::edit',
-    '/couple/:id/delete'    => 'My\Logic\Couples::delete',
-
-    '/event/new'           => 'My\Logic\Events::create',
-    '/event/:id'           => 'My\Logic\Events::show',
-    '/event/:id/edit'      => 'My\Logic\Events::edit',
-    '/event/:id/delete'    => 'My\Logic\Events::delete',
+    '/person/:id/edit'          => 'My\Logic\Persons::edit',
+    '/person/:id/delete'        => 'My\Logic\Persons::delete',
+    '/person/:id/addcouple'     => 'My\Logic\Persons::addCouple',
+    '/person/:id/addparents'    => 'My\Logic\Persons::addParents',
+    '/person/:id/addchild'      => 'My\Logic\Persons::addChild',
+    '/person/:id'               => 'My\Logic\Persons::show',
 
 ]);
 

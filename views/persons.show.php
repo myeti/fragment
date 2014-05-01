@@ -103,26 +103,27 @@
 
         <?php if(!$person->isSpouse()): ?>
 
-        <a class="btn add-couple" href="#">
-            <i class="fa fa-plus"></i> Relation
+        <a class="btn add-couple" href="<?= url('/person', $person->id, 'addcouple') ?>" data-modal="#create-couple">
+            <i class="fa fa-plus"></i> Couple
         </a>
 
         <?php if(!$person->id_parent): ?>
-        <a class="btn add-parents" href="#">
+        <a class="btn add-parents" href="<?= url('/person', $person->id, 'addparents') ?>" data-modal="#create-parents">
             <i class="fa fa-plus"></i> Parents
         </a>
         <?php endif; ?>
 
         <?php else: ?>
-        <a class="btn add-child" href="#">
+        <a class="btn add-child" href="<?= url('/person', $person->id, 'addchild') ?>" data-modal="#create-child">
             <i class="fa fa-plus"></i> Enfant
         </a>
         <?php endif; ?>
 
-        <a class="btn delete-person" href="#">
+        <a class="btn delete-person" href="<?= url('/person', $person->id, 'delete') ?>"
+           data-confirm="Etes-vous sûr ? Cette action supprimera cette personne ainsi que toutes ses relations et enfants.">
             <i class="fa fa-times"></i>
         </a>
-        <a class="btn btn-primary" href="#">Sauvegarder</a>
+        <button type="submit" class="btn btn-primary">Sauvegarder</button>
 
     </footer>
 

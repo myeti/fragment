@@ -29,7 +29,6 @@ class Persons
     /**
      * Edit person
      * @param int $id
-     * @render views/persons.edit
      * @return array
      */
     public function edit($id)
@@ -95,9 +94,9 @@ class Persons
     /**
      * Delete person
      * @param int $id
-     * @param bool $inner
+     * @param bool $redirect
      */
-    public function delete($id, $inner = false)
+    public function delete($id, $redirect = true)
     {
         // get person
         $person = Person::one(['id' => $id]);
@@ -113,7 +112,7 @@ class Persons
 
             // delete children
             foreach($couple->children() as $child) {
-                $this->delete($child->id, true);
+                $this->delete($child->id, false);
             }
 
             // delete couple
@@ -122,8 +121,8 @@ class Persons
 
         Person::drop($id);
 
-        if(!$inner) {
-            go('/person');
+        if($redirect) {
+            go('/tree', $person->id_tree);
         }
     }
 

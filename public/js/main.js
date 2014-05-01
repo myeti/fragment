@@ -6,6 +6,39 @@ $(document).ready(function(){
         right: $('#right')
     };
 
+    // open modal
+    $(document).on('click', 'a[data-modal]', function(e){
+
+        var target = $(this).attr('data-modal');
+        var action = $(this).attr('href');
+
+        $('#modals .modal').removeClass('active');
+        $('#modals').addClass('active');
+        $('.modal' + target).addClass('active')
+            .find('form').attr('action', action)
+            .find('input[type=text]:first').focus();
+
+        e.preventDefault();
+        return false;
+    });
+
+    // close modal
+    $(document).on('keyup', function(e){
+        if (e.keyCode == 27) {
+            $('#modals .modal').removeClass('active');
+            $('#modals').removeClass('active');
+        }
+    });
+
+    $('.modal a[data-close]').on('click', function(e){
+        $('#modals .modal').removeClass('active');
+        $('#modals').removeClass('active');
+
+        e.preventDefault();
+        return false;
+    });
+
+
     // open person
     panel.middle.on('click', 'a', function(e){
 
@@ -57,6 +90,12 @@ $(document).ready(function(){
 
         e.preventDefault();
         return false;
+    });
+
+    // delete link
+    $(document).on('click', 'a[data-confirm]', function(e){
+        var message = $(this).attr('data-confirm');
+        return confirm(message);
     });
 
 });

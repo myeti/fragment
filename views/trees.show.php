@@ -3,36 +3,47 @@
 <div id="modals">
 
     <div class="modal" id="create-couple">
-        <header>Ajouter une relation</header>
-        <main>
-            <input type="text" name="firstnames" placeholder="Prénom(s)"/>
-            <input type="text" name="lastname" placeholder="Nom de famille"/>
-        </main>
-        <footer>
-            <a class="btn btn-primary" href="#">Sauvegarder</a>
-        </footer>
+        <form action="#" method="post">
+            <header>Ajouter un couple</header>
+            <main>
+                <input type="text" name="firstnames" placeholder="PrÃ©nom(s) du conjoint"/>
+                <input type="text" name="lastname" placeholder="Nom de famille du conjoint"/>
+            </main>
+            <footer>
+                <a class="btn" href="#" data-close>Fermer</a>
+                <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            </footer>
+        </form>
     </div>
 
     <div class="modal" id="create-child">
-        <header>Ajouter un enfant</header>
-        <main>
-            <input type="text" name="firstnames" placeholder="Prénom(s)"/>
-            <input type="text" name="lastname" placeholder="Nom de famille"/>
-        </main>
-        <footer>
-            <a class="btn btn-primary" href="#">Sauvegarder</a>
-        </footer>
+        <form action="#" method="post">
+            <header>Ajouter un enfant</header>
+            <main>
+                <input type="text" name="firstnames" placeholder="PrÃ©nom(s) de l'enfant"/>
+                <input type="text" name="lastname" placeholder="Nom de famille de l'enfant"/>
+            </main>
+            <footer>
+                <a class="btn" href="#" data-close>Fermer</a>
+                <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            </footer>
+        </form>
     </div>
 
     <div class="modal" id="create-parents">
-        <header>Ajouter des parents</header>
-        <main>
-            <input type="text" name="firstnames" placeholder="Prénom(s)"/>
-            <input type="text" name="lastname" placeholder="Nom de famille"/>
-        </main>
-        <footer>
-            <a class="btn btn-primary" href="#">Sauvegarder</a>
-        </footer>
+        <form action="#" method="post">
+            <header>Ajouter des parents</header>
+            <main>
+                <input type="text" name="p1-firstnames" placeholder="PrÃ©nom(s) du parent 1"/>
+                <input type="text" name="p1-lastname" placeholder="Nom de famille du parent 1"/>
+                <input type="text" name="p2-firstnames" placeholder="PrÃ©nom(s) du parent 2"/>
+                <input type="text" name="p2-lastname" placeholder="Nom de famille du parent 2"/>
+            </main>
+            <footer>
+                <a class="btn" href="#" data-close>Fermer</a>
+                <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            </footer>
+        </form>
     </div>
 
 </div>
