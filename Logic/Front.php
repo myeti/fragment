@@ -22,22 +22,6 @@ class Front
     }
 
     /**
-     * Render tree
-     * @render views/front.render
-     */
-    public function render($safe)
-    {
-        $trees = Tree::all();
-        foreach($trees as $tree) {
-            if($tree->safename() == $safe) {
-                break;
-            }
-        }
-
-        return compact('tree');
-    }
-
-    /**
      * 404 Not found
      * @render views/front.404
      */

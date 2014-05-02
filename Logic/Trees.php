@@ -86,4 +86,23 @@ class Trees
         go('/tree');
     }
 
+
+
+
+    /**
+     * Render tree
+     * @render views/trees.render_v
+     */
+    public function renderV($safe)
+    {
+        $trees = Tree::all();
+        foreach($trees as $tree) {
+            if($tree->safename() == $safe) {
+                break;
+            }
+        }
+
+        return compact('tree');
+    }
+
 } 

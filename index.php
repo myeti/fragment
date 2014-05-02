@@ -47,6 +47,8 @@ $app = new Bundle([
     '/tree/:id/edit'            => 'My\Logic\Trees::edit',
     '/tree/:id/delete'          => 'My\Logic\Trees::delete',
     '/tree/:id'                 => 'My\Logic\Trees::show',
+    '/v/:safe'                  => 'My\Logic\Trees::renderV',
+//    '/h/:safe'                  => 'My\Logic\Trees::renderH',
 
     '/person/:id/edit'          => 'My\Logic\Persons::edit',
     '/person/:id/delete'        => 'My\Logic\Persons::delete',
@@ -54,9 +56,6 @@ $app = new Bundle([
     '/person/:id/addparents'    => 'My\Logic\Persons::addParents',
     '/person/:id/addchild'      => 'My\Logic\Persons::addChild',
     '/person/:id'               => 'My\Logic\Persons::show',
-
-    '/leaf/:safe'               => 'My\Logic\Front::render',
-    '/voir/:safe'               => 'My\Logic\Front::render',
 
 ]);
 

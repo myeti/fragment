@@ -3,6 +3,10 @@ $(document).ready(function(){
     // tree drag
     $('#tree-container').draggable();
 
+    // center tree
+    var fix = ($('#paper h1').width() / 2) - ($(window).width() / 2);
+    $('#paper').css('marginLeft', -fix);
+
     // coupe person size
     $('#tree .couple').each(function(){
 
