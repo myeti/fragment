@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 
     // open person
-    panel.middle.on('click', '.tree a', function(e){
+    panel.middle.on('click', '.lines a', function(e){
 
         var url = $(this).attr('href');
         panel.right.addClass('active').load(url);
@@ -102,10 +102,12 @@ $(document).ready(function(){
     });
 
     // fill lines
-    var j = panel.middle.find('.tree li').length;
-    var lines = panel.middle.find('.lines');
-    for(var i = 1; i <= j; i++) {
-        lines.append('<li>' + i + '</li>');
-    }
+    var lines = panel.middle.find('#editor .lines');
+    var i = 1;
+    panel.middle.find('#editor .tree li > a').each(function(){
+        lines.append('<li><a href="' + $(this).attr('href') + '">' + i + '</a></li>');
+        $(this).attr('href', '#');
+        i++;
+    });
 
 });

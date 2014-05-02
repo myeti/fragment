@@ -245,7 +245,16 @@
 /** Middle */
 
 #middle {
-    counter-reset: section;
+    z-index: 15;
+}
+
+#middle #editor {
+    position: absolute;
+    top: 60px;
+    left: -60px;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
 }
 
 #middle ul {
@@ -255,30 +264,26 @@
 }
 
 #middle ul.lines {
-    position: fixed;
-    top: 60px;
+    position: absolute;
+    top: 15px;
     left: 0;
     right: 0;
-    bottom: 0:
+    z-index: 50;
 }
-#middle ul.lines li {
+#middle ul.lines li a {
+    display: block;
     padding: 4px 8px;
-}
-#middle ul.lines li:hover {
-    padding: 5px 8px;
     padding-left: 24px;
-    margin-top: -5px;
-    left: 0;
-    right: 0;
-    z-index: -1000;
     color: #999;
+}
+#middle ul.lines li a:hover {
+    background: rgba(47, 135, 193, 0.15);
+    color: #FFF;
 }
 
 #middle ul.tree {
-    position: relative;
-    padding: 15px 10px;
-    height: calc(100% - 60px);
-    overflow: auto;
+    padding: 15px;
+    margin-left: 60px;
 }
 #middle ul.tree .name {
     position: relative;
@@ -288,10 +293,6 @@
 }
 #middle ul.tree .name:hover {
     cursor: pointer;
-}
-#middle ul.tree .name:hover::before {
-    background: rgba(47, 135, 193, 0.15);
-    color: #FFF;
 }
 #middle ul.tree .name.active {
     background: #666;

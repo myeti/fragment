@@ -84,11 +84,15 @@
         </a>
     </header>
 
-    <ul class="lines"></ul>
+    <div id="editor">
 
-    <ul class="tree">
-        <?= $tree->root()->render(); ?>
-    </ul>
+        <ul class="lines"></ul>
+
+        <ul class="tree">
+            <?= $tree->root()->render(); ?>
+        </ul>
+
+    </div>
 
 </section>
 
