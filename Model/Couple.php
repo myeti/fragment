@@ -21,6 +21,15 @@ class Couple
 
 
     /**
+     * Get person
+     * @return Person
+     */
+    public function person()
+    {
+        return Person::one(['id' => $this->id_person]);
+    }
+
+    /**
      * Get spouse
      * @return Person
      */

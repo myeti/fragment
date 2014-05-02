@@ -65,7 +65,7 @@
         <?php foreach($person->couples() as $couple): ?>
 
         <div class="sep title">
-            événements avec <?= $couple->spouse()->shortname() ?>
+            événements avec <?= $person->isSpouse() ? $couple->person()->shortname() : $couple->spouse()->shortname() ?>
             <a class="add-c-event" href="#" data-id="<?= $couple->id ?>">
                 <i class="fa fa-plus"></i> ajouter
             </a>

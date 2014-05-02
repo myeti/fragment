@@ -53,6 +53,8 @@ p {
 /* Paper */
 #paper {
     text-align: center;
+    width: 10000px;
+    margin-left: -1000px;
 }
 #paper header {
 

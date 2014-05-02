@@ -40,10 +40,7 @@ class Persons
     {
         $person = Person::one(['id' => $id]);
 
-        if(!$data = post() and Mog::async()) {
-            die(json_encode(false));
-        }
-        else {
+        if($data = post()) {
 
             // save person
             $person->firstnames = $data['firstnames'];
@@ -67,27 +64,23 @@ class Persons
                 }
             }
 
-            // save couples events
-            $deleted = [];
-            if(isset($data['c-event'])) {
-                foreach($data['c-event'] as $id_couple => $c_event) {
-
-                    if(!in_array($id_couple, $deleted)) {
-                        Event::query()->where('id_couple', $id_couple)->drop();
-                        $deleted[] = $id_couple;
-                    }
-
-                    $event = new Event;
-                    $event->id_couple = $id_couple;
-                    $event->what = $c_event['name'];
-                    $event->where = $c_event['place'];
-                    $event->when = $c_event['date'];
-                    Event::save($event);
-                }
+            // delete couples events
+            foreach($person->couples() as $couple) {
+                Event::query()->where('id_couple', $couple->id)->drop();
             }
 
-            if(Mog::async()) {
-                die(json_encode(true));
+            // add couples events
+            if(isset($data['c-event'])) {
+                foreach($data['c-event'] as $id_couple => $c_events) {
+                    foreach($c_events as $c_event) {
+                        $event = new Event;
+                        $event->id_couple = $id_couple;
+                        $event->what = $c_event['name'];
+                        $event->where = $c_event['place'];
+                        $event->when = $c_event['date'];
+                        Event::save($event);
+                    }
+                }
             }
 
         }

@@ -58,11 +58,13 @@
 /** Login */
 
 #login {
-    margin: auto;
-    margin-top: 21%;
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    margin-top: -180px;
+    text-align: center;
 }
 #login .logo {
-    margin-top: 200px;
     display: block;
     text-align: center;
     padding: 20px;
@@ -253,7 +255,10 @@
 }
 
 #middle ul.tree {
+    position: relative;
     padding: 15px 10px;
+    height: calc(100% - 60px);
+    overflow: auto;
 }
 #middle ul.tree .name {
     position: relative;
