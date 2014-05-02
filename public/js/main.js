@@ -101,4 +101,11 @@ $(document).ready(function(){
         return confirm(message);
     });
 
+    // fill lines
+    var j = panel.middle.find('.tree li').length;
+    var lines = panel.middle.find('.lines');
+    for(var i = 1; i <= j; i++) {
+        lines.append('<li>' + i + '</li>');
+    }
+
 });

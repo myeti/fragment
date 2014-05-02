@@ -84,10 +84,10 @@
         </a>
     </header>
 
+    <ul class="lines"></ul>
+
     <ul class="tree">
-
         <?= $tree->root()->render(); ?>
-
     </ul>
 
 </section>

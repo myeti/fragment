@@ -254,6 +254,26 @@
     padding: 0;
 }
 
+#middle ul.lines {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0:
+}
+#middle ul.lines li {
+    padding: 4px 8px;
+}
+#middle ul.lines li:hover {
+    padding: 5px 8px;
+    padding-left: 24px;
+    margin-top: -5px;
+    left: 0;
+    right: 0;
+    z-index: -1000;
+    color: #999;
+}
+
 #middle ul.tree {
     position: relative;
     padding: 15px 10px;
@@ -265,18 +285,6 @@
     display: block;
     padding: 4px 8px;
     border-radius: 4px;
-}
-#middle ul.tree .name::before {
-    counter-increment: section;
-    position: fixed;
-    content: counter(section);
-    padding: 5px 8px;
-    padding-left: 24px;
-    margin-top: -5px;
-    left: 0;
-    right: 0;
-    z-index: -1000;
-    color: #999;
 }
 #middle ul.tree .name:hover {
     cursor: pointer;
